@@ -3,6 +3,7 @@ package com.example.blogenboot.ds;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString
 public class User {
 
     @Id
@@ -18,7 +20,7 @@ public class User {
     private Integer id;
     private String name;
     private String email;
-    private LocalDate dateRegister;
+    private LocalDate dateRegistered;
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
 }

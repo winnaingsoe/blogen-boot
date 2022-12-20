@@ -23,7 +23,8 @@
                        data-target="#addCategoryModal"><i class="fas fa-plus"></i> Add Category</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="btn btn-lg btn-warning btn-block"><i class="fas fa-plus"></i> Add User</a>
+                    <a href="#" class="btn btn-lg btn-warning btn-block" data-toggle="modal"
+                       data-target="#addUserModal"><i class="fas fa-plus"></i> Add User</a>
 
                 </div>
                 <div class="col-md-4"></div>
@@ -40,7 +41,7 @@
                     <div class="modal-header bg-success">
                         <h5 class="modal-title">Add Categories</h5>
                         <button class="close" data-dismiss="modal">
-                            <spa>&times;</spa>
+                            <span>&times;</span>
                         </button>
                     </div>
 
@@ -52,6 +53,42 @@
                         <div class="form-group">
                             <label for="datePosted">Date Posted</label>
                             <input type="date" th:field="*{datePosted}" id="datePosted" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-success" value="Add Category">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--User Modal-->
+
+    <div class="modal fade" id="addUserModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form action="" th:action="@{/save-user}" th:object="${user}" method="post">
+                    <div class="modal-header bg-success">
+                        <h5 class="modal-title">Add User</h5>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" th:field="*{name}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" th:field="*{email}" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateRegistered">Date Registered</label>
+                            <input type="date" th:field="*{dateRegistered}" id="dateRegistered" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
